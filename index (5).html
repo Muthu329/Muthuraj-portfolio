@@ -1,0 +1,1694 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muthuraj | Full Stack AI SaaS Developer</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { font-family: 'Inter', sans-serif; }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #2563EB; border-radius: 4px; }
+        
+        /* Gradient Text */
+        .gradient-text {
+            background: linear-gradient(135deg, #2563EB 0%, #7c3aed 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Gradient Button */
+        .gradient-btn {
+            background: linear-gradient(135deg, #2563EB 0%, #1d4ed8 50%, #7c3aed 100%);
+            background-size: 200% 200%;
+            animation: gradientShift 3s ease infinite;
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        /* Floating Animation */
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        /* Fade In Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Glow Effect */
+        .glow-effect {
+            box-shadow: 0 0 40px rgba(37, 99, 235, 0.15);
+        }
+        
+        .glow-effect:hover {
+            box-shadow: 0 0 60px rgba(37, 99, 235, 0.25);
+        }
+        
+        /* Card Hover */
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Subtle Background Pattern */
+        .hero-pattern {
+            background-image: radial-gradient(circle at 1px 1px, rgba(37, 99, 235, 0.05) 1px, transparent 0);
+            background-size: 40px 40px;
+        }
+        
+        /* Navigation Active State */
+        .nav-link.active {
+            color: #2563EB;
+        }
+        
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #2563EB, #7c3aed);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        /* Page Sections */
+        .page-section {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .page-section.active {
+            display: block;
+            opacity: 1;
+        }
+        
+        /* Modal */
+        .modal {
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* Skill Bar Animation */
+        .skill-bar {
+            width: 0;
+            transition: width 1.5s ease;
+        }
+        
+        /* Testimonial Card Gradient Border */
+        .testimonial-card {
+            position: relative;
+            background: white;
+        }
+        
+        .testimonial-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 16px;
+            padding: 2px;
+            background: linear-gradient(135deg, #2563EB, #7c3aed);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .testimonial-card:hover::before {
+            opacity: 1;
+        }
+        
+        /* Pricing Card Popular */
+        .pricing-popular {
+            background: linear-gradient(135deg, #0F172A 0%, #1e293b 100%);
+        }
+        
+        /* Input Focus */
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #2563EB;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+        
+        /* Hero Gradient Orbs */
+        .gradient-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.5;
+        }
+        
+        .orb-1 {
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(135deg, #2563EB, #7c3aed);
+            top: -100px;
+            right: -100px;
+        }
+        
+        .orb-2 {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, #7c3aed, #2563EB);
+            bottom: -50px;
+            left: -50px;
+        }
+    </style>
+</head>
+<body class="bg-white text-slate-800 antialiased">
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-100 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="#" onclick="navigateTo('home')" class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-xl gradient-btn flex items-center justify-center">
+                        <span class="text-white font-bold text-lg">M</span>
+                    </div>
+                    <span class="font-bold text-xl text-[#0F172A]">Muthuraj</span>
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="#" onclick="navigateTo('home')" class="nav-link relative text-[#475569] hover:text-[#0F172A] font-medium transition-colors">Home</a>
+                    <a href="#" onclick="navigateTo('services')" class="nav-link relative text-[#475569] hover:text-[#0F172A] font-medium transition-colors">Services</a>
+                    <a href="#" onclick="navigateTo('projects')" class="nav-link relative text-[#475569] hover:text-[#0F172A] font-medium transition-colors">Projects</a>
+                    <a href="#" onclick="navigateTo('about')" class="nav-link relative text-[#475569] hover:text-[#0F172A] font-medium transition-colors">About</a>
+                    <a href="#" onclick="navigateTo('skills')" class="nav-link relative text-[#475569] hover:text-[#0F172A] font-medium transition-colors">Skills</a>
+                    <a href="#" onclick="navigateTo('pricing')" class="nav-link relative text-[#475569] hover:text-[#0F172A] font-medium transition-colors">Pricing</a>
+                    <a href="#" onclick="navigateTo('testimonials')" class="nav-link relative text-[#475569] hover:text-[#0F172A] font-medium transition-colors">Testimonials</a>
+                    <a href="#" onclick="navigateTo('contact')" class="nav-link relative text-[#475569] hover:text-[#0F172A] font-medium transition-colors">Contact</a>
+                </div>
+                
+                <!-- CTA Button -->
+                <div class="hidden lg:block">
+                    <button onclick="navigateTo('contact')" class="gradient-btn text-white px-6 py-3 rounded-xl font-semibold hover:scale-105 transition-transform shadow-lg shadow-blue-500/25">
+                        BOOK FREE CALL
+                    </button>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="lg:hidden p-2 rounded-lg hover:bg-slate-100 transition-colors">
+                    <svg class="w-6 h-6 text-[#0F172A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="lg:hidden hidden bg-white border-t border-slate-100">
+            <div class="px-4 py-6 space-y-4">
+                <a href="#" onclick="navigateTo('home'); closeMobileMenu();" class="block text-[#475569] hover:text-[#0F172A] font-medium py-2">Home</a>
+                <a href="#" onclick="navigateTo('services'); closeMobileMenu();" class="block text-[#475569] hover:text-[#0F172A] font-medium py-2">Services</a>
+                <a href="#" onclick="navigateTo('projects'); closeMobileMenu();" class="block text-[#475569] hover:text-[#0F172A] font-medium py-2">Projects</a>
+                <a href="#" onclick="navigateTo('about'); closeMobileMenu();" class="block text-[#475569] hover:text-[#0F172A] font-medium py-2">About</a>
+                <a href="#" onclick="navigateTo('skills'); closeMobileMenu();" class="block text-[#475569] hover:text-[#0F172A] font-medium py-2">Skills</a>
+                <a href="#" onclick="navigateTo('pricing'); closeMobileMenu();" class="block text-[#475569] hover:text-[#0F172A] font-medium py-2">Pricing</a>
+                <a href="#" onclick="navigateTo('testimonials'); closeMobileMenu();" class="block text-[#475569] hover:text-[#0F172A] font-medium py-2">Testimonials</a>
+                <a href="#" onclick="navigateTo('contact'); closeMobileMenu();" class="block text-[#475569] hover:text-[#0F172A] font-medium py-2">Contact</a>
+                <button onclick="navigateTo('contact'); closeMobileMenu();" class="w-full gradient-btn text-white px-6 py-3 rounded-xl font-semibold mt-4">
+                    BOOK FREE CALL
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pt-20">
+        <!-- HOME PAGE -->
+        <section id="home" class="page-section active">
+            <!-- Hero Section -->
+            <div class="relative min-h-screen flex items-center hero-pattern overflow-hidden">
+                <!-- Gradient Orbs -->
+                <div class="gradient-orb orb-1"></div>
+                <div class="gradient-orb orb-2"></div>
+                
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
+                    <div class="grid lg:grid-cols-2 gap-12 items-center">
+                        <div class="fade-in">
+                            <div class="inline-flex items-center px-4 py-2 rounded-full bg-blue-50 text-[#2563EB] font-medium text-sm mb-6">
+                                <span class="w-2 h-2 rounded-full bg-[#2563EB] mr-2 animate-pulse"></span>
+                                Available for New Projects
+                            </div>
+                            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#0F172A] leading-tight mb-6">
+                                Building <span class="gradient-text">Intelligent</span> SaaS Products That Scale Your Business
+                            </h1>
+                            <p class="text-xl text-[#475569] mb-8 leading-relaxed">
+                                I design and develop AI-powered SaaS platforms, automation systems, and high-converting websites that transform how businesses operate. From concept to deployment—strategically built for growth.
+                            </p>
+                            <div class="flex flex-col sm:flex-row gap-4">
+                                <button onclick="navigateTo('contact')" class="gradient-btn text-white px-8 py-4 rounded-xl font-bold text-lg hover:scale-105 transition-transform shadow-lg shadow-blue-500/30 float-animation">
+                                    BOOK FREE CALL
+                                </button>
+                                <button onclick="navigateTo('projects')" class="border-2 border-[#2563EB] text-[#2563EB] px-8 py-4 rounded-xl font-bold text-lg hover:bg-blue-50 transition-all hover:scale-102">
+                                    VIEW PROJECTS
+                                </button>
+                            </div>
+                            
+                            <!-- Trust Indicators -->
+                            <div class="mt-12 pt-8 border-t border-slate-200">
+                                <p class="text-sm text-[#475569] mb-4">Trusted by founders and agencies across the U.S.</p>
+                                <div class="flex items-center space-x-6">
+                                    <div class="flex items-center">
+                                        <span class="text-3xl font-bold text-[#0F172A]">50+</span>
+                                        <span class="text-sm text-[#475569] ml-2">Projects<br>Delivered</span>
+                                    </div>
+                                    <div class="w-px h-12 bg-slate-200"></div>
+                                    <div class="flex items-center">
+                                        <span class="text-3xl font-bold text-[#0F172A]">2+</span>
+                                        <span class="text-sm text-[#475569] ml-2">Years<br>Experience</span>
+                                    </div>
+                                    <div class="w-px h-12 bg-slate-200"></div>
+                                    <div class="flex items-center">
+                                        <span class="text-3xl font-bold text-[#0F172A]">100%</span>
+                                        <span class="text-sm text-[#475569] ml-2">Client<br>Satisfaction</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Hero Visual -->
+                        <div class="fade-in relative">
+                            <div class="relative">
+                                <div class="absolute inset-0 gradient-btn rounded-3xl blur-3xl opacity-20"></div>
+                                <div class="relative bg-gradient-to-br from-[#0F172A] to-slate-800 rounded-3xl p-8 glow-effect">
+                                    <div class="flex items-center space-x-2 mb-6">
+                                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                                    </div>
+                                    <pre class="text-sm text-slate-300 font-mono overflow-hidden"><code><span class="text-purple-400">const</span> <span class="text-blue-400">developer</span> = {
+  <span class="text-green-400">name</span>: <span class="text-yellow-300">"Muthuraj"</span>,
+  <span class="text-green-400">role</span>: <span class="text-yellow-300">"Full Stack AI Developer"</span>,
+  <span class="text-green-400">skills</span>: [
+    <span class="text-yellow-300">"React"</span>, <span class="text-yellow-300">"Next.js"</span>, <span class="text-yellow-300">"Python"</span>,
+    <span class="text-yellow-300">"AI/ML"</span>, <span class="text-yellow-300">"SaaS Architecture"</span>
+  ],
+  <span class="text-green-400">passion</span>: <span class="text-yellow-300">"Building the future"</span>
+};
+
+<span class="text-purple-400">function</span> <span class="text-blue-400">buildSuccess</span>(<span class="text-orange-400">client</span>) {
+  <span class="text-purple-400">return</span> <span class="text-yellow-300">`${client} + Innovation`</span>;
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Value Proposition Section -->
+            <div class="py-24 bg-slate-50">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-16 fade-in">
+                        <h2 class="text-3xl sm:text-4xl font-bold text-[#0F172A] mb-4">Why Industry Leaders Choose Me</h2>
+                        <p class="text-xl text-[#475569] max-w-3xl mx-auto">Professional full-stack builds, AI automation, SaaS systems, and modern website development.</p>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <div class="fade-in bg-white p-8 rounded-2xl shadow-sm card-hover glow-effect">
+                            <div class="w-14 h-14 rounded-xl bg-blue-100 flex items-center justify-center mb-6">
+                                <i class="fas fa-rocket text-2xl text-[#2563EB]"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-[#0F172A] mb-3">Strategic Development</h3>
+                            <p class="text-[#475569]">Every line of code is written with business growth in mind. I build solutions that evolve with your company.</p>
+                        </div>
+                        
+                        <div class="fade-in bg-white p-8 rounded-2xl shadow-sm card-hover glow-effect" style="transition-delay: 0.1s;">
+                            <div class="w-14 h-14 rounded-xl bg-purple-100 flex items-center justify-center mb-6">
+                                <i class="fas fa-brain text-2xl text-purple-600"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-[#0F172A] mb-3">AI-First Approach</h3>
+                            <p class="text-[#475569]">Leverage cutting-edge AI to automate workflows, enhance user experiences, and unlock data-driven insights.</p>
+                        </div>
+                        
+                        <div class="fade-in bg-white p-8 rounded-2xl shadow-sm card-hover glow-effect" style="transition-delay: 0.2s;">
+                            <div class="w-14 h-14 rounded-xl bg-green-100 flex items-center justify-center mb-6">
+                                <i class="fas fa-shield-halved text-2xl text-green-600"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-[#0F172A] mb-3">Enterprise Security</h3>
+                            <p class="text-[#475569]">Bank-grade security practices, secure authentication, and data protection built into every project.</p>
+                        </div>
+                        
+                        <div class="fade-in bg-white p-8 rounded-2xl shadow-sm card-hover glow-effect" style="transition-delay: 0.3s;">
+                            <div class="w-14 h-14 rounded-xl bg-orange-100 flex items-center justify-center mb-6">
+                                <i class="fas fa-chart-line text-2xl text-orange-600"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-[#0F172A] mb-3">Scalable Architecture</h3>
+                            <p class="text-[#475569]">From MVP to millions of users—systems designed to handle exponential growth without breaking.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Featured Projects Preview -->
+            <div class="py-24">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-12 fade-in">
+                        <div>
+                            <h2 class="text-3xl sm:text-4xl font-bold text-[#0F172A] mb-2">Featured Work</h2>
+                            <p class="text-xl text-[#475569]">AI-powered solutions that drive real business results</p>
+                        </div>
+                        <button onclick="navigateTo('projects')" class="mt-4 sm:mt-0 text-[#2563EB] font-semibold hover:underline flex items-center">
+                            View All Projects <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <!-- Project 1 -->
+                        <div class="fade-in group relative bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl overflow-hidden card-hover cursor-pointer" onclick="openCaseStudy('echostate')">
+                            <div class="aspect-video bg-gradient-to-br from-blue-600/20 to-purple-600/20 flex items-center justify-center">
+                                <div class="text-center">
+                                    <i class="fas fa-building text-6xl text-white/30 mb-4"></i>
+                                    <div class="text-white/50 text-sm">EchoEstate Platform</div>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-xs font-medium">AI</span>
+                                    <span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-xs font-medium">SaaS</span>
+                                    <span class="px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-xs font-medium">Full Stack</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-white mb-2">EchoEstate</h3>
+                                <p class="text-slate-400 mb-4">AI-Powered Real Estate Listing Platform with smart property matching and automated valuations.</p>
+                                <span class="text-[#2563EB] font-semibold group-hover:underline">View Case Study →</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Project 2 -->
+                        <div class="fade-in group relative bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl overflow-hidden card-hover cursor-pointer" onclick="openCaseStudy('tabletalk')">
+                            <div class="aspect-video bg-gradient-to-br from-orange-600/20 to-red-600/20 flex items-center justify-center">
+                                <div class="text-center">
+                                    <i class="fas fa-utensils text-6xl text-white/30 mb-4"></i>
+                                    <div class="text-white/50 text-sm">TableTalk Platform</div>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-xs font-medium">AI Chatbot</span>
+                                    <span class="px-3 py-1 bg-orange-500/20 text-orange-400 rounded-full text-xs font-medium">Automation</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-white mb-2">TableTalk</h3>
+                                <p class="text-slate-400 mb-4">Restaurant Website with AI-Powered Reservation Assistant and menu recommendations.</p>
+                                <span class="text-[#2563EB] font-semibold group-hover:underline">View Case Study →</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Project 3 -->
+                        <div class="fade-in group relative bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl overflow-hidden card-hover cursor-pointer" onclick="openCaseStudy('fitmind')">
+                            <div class="aspect-video bg-gradient-to-br from-green-600/20 to-teal-600/20 flex items-center justify-center">
+                                <div class="text-center">
+                                    <i class="fas fa-dumbbell text-6xl text-white/30 mb-4"></i>
+                                    <div class="text-white/50 text-sm">FitMind Platform</div>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-xs font-medium">SaaS</span>
+                                    <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-xs font-medium">AI Trainer</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-white mb-2">FitMind</h3>
+                                <p class="text-slate-400 mb-4">Fitness Coaching SaaS with AI Personal Trainer, workout plans, and progress tracking.</p>
+                                <span class="text-[#2563EB] font-semibold group-hover:underline">View Case Study →</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Project 4 -->
+                        <div class="fade-in group relative bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl overflow-hidden card-hover cursor-pointer" onclick="openCaseStudy('financeai')">
+                            <div class="aspect-video bg-gradient-to-br from-yellow-600/20 to-amber-600/20 flex items-center justify-center">
+                                <div class="text-center">
+                                    <i class="fas fa-chart-pie text-6xl text-white/30 mb-4"></i>
+                                    <div class="text-white/50 text-sm">Finance AI Platform</div>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="px-3 py-1 bg-yellow-500/20 text-yellow-400 rounded-full text-xs font-medium">AI/ML</span>
+                                    <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-xs font-medium">Analytics</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-white mb-2">AI Financial Forecasting</h3>
+                                <p class="text-slate-400 mb-4">Predictive analytics tool for business intelligence and revenue forecasting.</p>
+                                <span class="text-[#2563EB] font-semibold group-hover:underline">View Case Study →</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- CTA Section -->
+            <div class="py-24 bg-[#0F172A] relative overflow-hidden">
+                <div class="absolute inset-0">
+                    <div class="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl"></div>
+                    <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl"></div>
+                </div>
+                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 fade-in">
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">Ready to Build Something Extraordinary?</h2>
+                    <p class="text-xl text-slate-300 mb-10">Let's transform your vision into a powerful, scalable digital product. Book a free strategy call today.</p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <button onclick="navigateTo('contact')" class="gradient-btn text-white px-10 py-4 rounded-xl font-bold text-lg hover:scale-105 transition-transform shadow-lg shadow-blue-500/30">
+                            START YOUR PROJECT
+                        </button>
+                        <button onclick="navigateTo('services')" class="border-2 border-white/30 text-white px-10 py-4 rounded-xl font-bold text-lg hover:bg-white/10 transition-all">
+                            EXPLORE SERVICES
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES PAGE -->
+        <section id="services" class="page-section">
+            <div class="py-24">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-16 fade-in">
+                        <span class="inline-block px-4 py-2 rounded-full bg-blue-50 text-[#2563EB] font-medium text-sm mb-4">SERVICES</span>
+                        <h1 class="text-4xl sm:text-5xl font-bold text-[#0F172A] mb-6">End-to-End Development Solutions</h1>
+                        <p class="text-xl text-[#475569] max-w-3xl mx-auto">From high-converting websites to enterprise SaaS platforms—I deliver strategic, AI-enhanced digital solutions that drive measurable business growth.</p>
+                    </div>
+                    
+                    <!-- Service 1: Website Development -->
+                    <div class="fade-in mb-12 bg-white rounded-3xl p-8 lg:p-12 shadow-sm border border-slate-100 card-hover glow-effect">
+                        <div class="grid lg:grid-cols-2 gap-12 items-center">
+                            <div>
+                                <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center mb-6">
+                                    <i class="fas fa-globe text-3xl text-white"></i>
+                                </div>
+                                <h2 class="text-3xl font-bold text-[#0F172A] mb-4">Website Development</h2>
+                                <p class="text-lg text-[#475569] mb-6">High-performance websites that convert visitors into customers. Built with modern frameworks, optimized for speed, SEO, and user experience—every pixel designed with purpose.</p>
+                                
+                                <div class="space-y-3 mb-8">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                        <span class="text-[#475569]">Custom responsive design for all devices</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                        <span class="text-[#475569]">Lightning-fast load times (Core Web Vitals optimized)</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                        <span class="text-[#475569]">SEO-ready architecture with meta optimization</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                        <span class="text-[#475569]">CMS integration for easy content management</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                        <span class="text-[#475569]">Analytics and conversion tracking setup</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-6">
+                                    <h4 class="font-semibold text-[#0F172A] mb-2">Ideal For:</h4>
+                                    <p class="text-[#475569]">Startups, agencies, personal brands, service businesses, and companies needing a professional digital presence.</p>
+                                </div>
+                                
+                                <button onclick="navigateTo('contact')" class="gradient-btn text-white px-8 py-4 rounded-xl font-bold hover:scale-105 transition-transform shadow-lg shadow-blue-500/25">
+                                    REQUEST PRICING
+                                </button>
+                            </div>
+                            <div class="bg-gradient-to-br from-slate-100 to-slate-50 rounded-2xl p-8 aspect-square flex items-center justify-center">
+                                <i class="fas fa-laptop-code text-9xl text-[#2563EB]/20"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Service 2: SaaS Development -->
+                    <div class="fade-in mb-12 bg-white rounded-3xl p-8 lg:p-12 shadow-sm border border-slate-100 card-hover glow-effect">
+                        <div class="grid lg:grid-cols-2 gap-12 items-center">
+                            <div class="order-2 lg:order-1 bg-gradient-to-br from-purple-100 to-purple-50 rounded-2xl p-8 aspect-square flex items-center justify-center">
+                                <i class="fas fa-cloud text-9xl text-purple-600/20"></i>
+                            </div>
+                            <div class="order-1 lg:order-2">
+                                <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center mb-6">
+                                    <i class="fas fa-rocket text-3xl text-white"></i>
+                                </div>
+                                <h2 class="text-3xl font-bold text-[#0F172A] mb-4">SaaS Platform Development</h2>
+                                <p class="text-lg text-[#475569] mb-6">Full-stack SaaS products built for scale. From authentication to payments, dashboards to APIs—I architect complete platforms that handle enterprise-level demands.</p>
+                                
+                                <div class="space-y-3 mb-8">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                        <span class="text-[#475569]">Secure user authentication & role management</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                        <span class="text-[#475569]">Stripe/payment gateway integration</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                        <span class="text-[#475569]">Real-time dashboards and analytics</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                        <span class="text-[#475569]">RESTful APIs and third-party integrations</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                        <span class="text-[#475569]">Cloud deployment (AWS, Vercel, Railway)</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-6">
+                                    <h4 class="font-semibold text-[#0F172A] mb-2">Ideal For:</h4>
+                                    <p class="text-[#475569]">Tech founders, entrepreneurs launching MVPs, agencies building client products, and businesses automating internal operations.</p>
+                                </div>
+                                
+                                <button onclick="navigateTo('contact')" class="gradient-btn text-white px-8 py-4 rounded-xl font-bold hover:scale-105 transition-transform shadow-lg shadow-blue-500/25">
+                                    REQUEST PRICING
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Service 3: AI Automations -->
+                    <div class="fade-in bg-white rounded-3xl p-8 lg:p-12 shadow-sm border border-slate-100 card-hover glow-effect">
+                        <div class="grid lg:grid-cols-2 gap-12 items-center">
+                            <div>
+                                <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-green-500 to-teal-600 flex items-center justify-center mb-6">
+                                    <i class="fas fa-robot text-3xl text-white"></i>
+                                </div>
+                                <h2 class="text-3xl font-bold text-[#0F172A] mb-4">AI Automations & Business Intelligence</h2>
+                                <p class="text-lg text-[#475569] mb-6">Harness the power of artificial intelligence to automate workflows, enhance customer experiences, and unlock actionable insights from your data.</p>
+                                
+                                <div class="space-y-3 mb-8">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                        <span class="text-[#475569]">Custom AI chatbots & virtual assistants</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                        <span class="text-[#475569]">GPT/LLM integrations for content & support</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                        <span class="text-[#475569]">Predictive analytics & forecasting models</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                        <span class="text-[#475569]">Workflow automation (Zapier, Make, n8n)</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                        <span class="text-[#475569]">Data pipelines & visualization dashboards</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-6">
+                                    <h4 class="font-semibold text-[#0F172A] mb-2">Ideal For:</h4>
+                                    <p class="text-[#475569]">Businesses looking to reduce manual work, enhance customer service, make data-driven decisions, and stay ahead of competition.</p>
+                                </div>
+                                
+                                <button onclick="navigateTo('contact')" class="gradient-btn text-white px-8 py-4 rounded-xl font-bold hover:scale-105 transition-transform shadow-lg shadow-blue-500/25">
+                                    REQUEST PRICING
+                                </button>
+                            </div>
+                            <div class="bg-gradient-to-br from-green-100 to-teal-50 rounded-2xl p-8 aspect-square flex items-center justify-center">
+                                <i class="fas fa-brain text-9xl text-green-600/20"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS PAGE -->
+        <section id="projects" class="page-section">
+            <div class="py-24 bg-slate-50">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-16 fade-in">
+                        <span class="inline-block px-4 py-2 rounded-full bg-blue-50 text-[#2563EB] font-medium text-sm mb-4">PORTFOLIO</span>
+                        <h1 class="text-4xl sm:text-5xl font-bold text-[#0F172A] mb-6">Projects That Deliver Results</h1>
+                        <p class="text-xl text-[#475569] max-w-3xl mx-auto">Explore a selection of AI-powered platforms, SaaS products, and intelligent automation systems I've built for forward-thinking clients.</p>
+                    </div>
+                    
+                    <div class="grid lg:grid-cols-2 gap-8">
+                        <!-- Project 1: EchoEstate -->
+                        <div class="fade-in bg-white rounded-3xl overflow-hidden shadow-sm card-hover glow-effect cursor-pointer" onclick="openCaseStudy('echostate')">
+                            <div class="aspect-video bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center relative overflow-hidden">
+                                <div class="absolute inset-0 bg-black/20"></div>
+                                <div class="relative z-10 text-center">
+                                    <i class="fas fa-building text-8xl text-white/50 mb-4"></i>
+                                    <div class="text-white font-semibold text-xl">EchoEstate</div>
+                                </div>
+                            </div>
+                            <div class="p-8">
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="px-3 py-1 bg-blue-100 text-[#2563EB] rounded-full text-sm font-medium">AI</span>
+                                    <span class="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm font-medium">SaaS</span>
+                                    <span class="px-3 py-1 bg-green-100 text-green-600 rounded-full text-sm font-medium">Full Stack</span>
+                                </div>
+                                <h3 class="text-2xl font-bold text-[#0F172A] mb-3">EchoEstate – AI Real Estate Platform</h3>
+                                <p class="text-[#475569] mb-6">A comprehensive real estate listing platform powered by AI that provides intelligent property matching, automated valuations, and predictive market insights for buyers, sellers, and agents.</p>
+                                <span class="inline-flex items-center text-[#2563EB] font-semibold hover:underline">
+                                    View Case Study <i class="fas fa-arrow-right ml-2"></i>
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <!-- Project 2: TableTalk -->
+                        <div class="fade-in bg-white rounded-3xl overflow-hidden shadow-sm card-hover glow-effect cursor-pointer" onclick="openCaseStudy('tabletalk')">
+                            <div class="aspect-video bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center relative overflow-hidden">
+                                <div class="absolute inset-0 bg-black/20"></div>
+                                <div class="relative z-10 text-center">
+                                    <i class="fas fa-utensils text-8xl text-white/50 mb-4"></i>
+                                    <div class="text-white font-semibold text-xl">TableTalk</div>
+                                </div>
+                            </div>
+                            <div class="p-8">
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="px-3 py-1 bg-blue-100 text-[#2563EB] rounded-full text-sm font-medium">AI Chatbot</span>
+                                    <span class="px-3 py-1 bg-orange-100 text-orange-600 rounded-full text-sm font-medium">Automation</span>
+                                    <span class="px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-sm font-medium">Web App</span>
+                                </div>
+                                <h3 class="text-2xl font-bold text-[#0F172A] mb-3">TableTalk – Restaurant AI Assistant</h3>
+                                <p class="text-[#475569] mb-6">A modern restaurant website featuring an AI-powered reservation assistant that handles bookings, answers menu questions, provides personalized recommendations, and reduces staff workload by 60%.</p>
+                                <span class="inline-flex items-center text-[#2563EB] font-semibold hover:underline">
+                                    View Case Study <i class="fas fa-arrow-right ml-2"></i>
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <!-- Project 3: FitMind -->
+                        <div class="fade-in bg-white rounded-3xl overflow-hidden shadow-sm card-hover glow-effect cursor-pointer" onclick="openCaseStudy('fitmind')">
+                            <div class="aspect-video bg-gradient-to-br from-green-500 to-teal-500 flex items-center justify-center relative overflow-hidden">
+                                <div class="absolute inset-0 bg-black/20"></div>
+                                <div class="relative z-10 text-center">
+                                    <i class="fas fa-dumbbell text-8xl text-white/50 mb-4"></i>
+                                    <div class="text-white font-semibold text-xl">FitMind</div>
+                                </div>
+                            </div>
+                            <div class="p-8">
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="px-3 py-1 bg-green-100 text-green-600 rounded-full text-sm font-medium">SaaS</span>
+                                    <span class="px-3 py-1 bg-blue-100 text-[#2563EB] rounded-full text-sm font-medium">AI Trainer</span>
+                                    <span class="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm font-medium">Mobile Ready</span>
+                                </div>
+                                <h3 class="text-2xl font-bold text-[#0F172A] mb-3">FitMind – AI Fitness Coaching SaaS</h3>
+                                <p class="text-[#475569] mb-6">A subscription-based fitness platform with an AI personal trainer that creates custom workout plans, tracks progress, provides form corrections, and adapts routines based on user performance.</p>
+                                <span class="inline-flex items-center text-[#2563EB] font-semibold hover:underline">
+                                    View Case Study <i class="fas fa-arrow-right ml-2"></i>
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <!-- Project 4: Finance AI -->
+                        <div class="fade-in bg-white rounded-3xl overflow-hidden shadow-sm card-hover glow-effect cursor-pointer" onclick="openCaseStudy('financeai')">
+                            <div class="aspect-video bg-gradient-to-br from-yellow-500 to-amber-500 flex items-center justify-center relative overflow-hidden">
+                                <div class="absolute inset-0 bg-black/20"></div>
+                                <div class="relative z-10 text-center">
+                                    <i class="fas fa-chart-pie text-8xl text-white/50 mb-4"></i>
+                                    <div class="text-white font-semibold text-xl">Finance AI</div>
+                                </div>
+                            </div>
+                            <div class="p-8">
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full text-sm font-medium">AI/ML</span>
+                                    <span class="px-3 py-1 bg-blue-100 text-[#2563EB] rounded-full text-sm font-medium">Analytics</span>
+                                    <span class="px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-sm font-medium">Enterprise</span>
+                                </div>
+                                <h3 class="text-2xl font-bold text-[#0F172A] mb-3">AI Financial Forecasting Tool</h3>
+                                <p class="text-[#475569] mb-6">An enterprise-grade predictive analytics platform that leverages machine learning to forecast revenue, identify trends, detect anomalies, and provide actionable business intelligence.</p>
+                                <span class="inline-flex items-center text-[#2563EB] font-semibold hover:underline">
+                                    View Case Study <i class="fas fa-arrow-right ml-2"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT PAGE -->
+        <section id="about" class="page-section">
+            <div class="py-24">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid lg:grid-cols-2 gap-16 items-center">
+                        <div class="fade-in">
+                            <div class="relative">
+                                <div class="absolute inset-0 gradient-btn rounded-3xl blur-3xl opacity-20"></div>
+                                <div class="relative aspect-square bg-gradient-to-br from-[#0F172A] to-slate-700 rounded-3xl flex items-center justify-center overflow-hidden">
+                                    <div class="text-center">
+                                        <div class="w-48 h-48 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center mx-auto mb-6">
+                                            <span class="text-7xl font-bold text-white">M</span>
+                                        </div>
+                                        <h3 class="text-2xl font-bold text-white">Muthuraj</h3>
+                                        <p class="text-slate-400">Full Stack AI Developer</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="fade-in">
+                            <span class="inline-block px-4 py-2 rounded-full bg-blue-50 text-[#2563EB] font-medium text-sm mb-4">ABOUT ME</span>
+                            <h1 class="text-4xl sm:text-5xl font-bold text-[#0F172A] mb-6">Building Tomorrow's Technology, Today</h1>
+                            
+                            <div class="prose prose-lg text-[#475569] space-y-4 mb-8">
+                                <p>I'm Muthuraj, a Full Stack AI SaaS Developer with over 2 years of experience transforming business ideas into powerful digital products. I specialize in building intelligent, scalable applications that solve real problems and deliver measurable ROI.</p>
+                                
+                                <p>My expertise spans the entire development lifecycle—from strategic planning and UI/UX design to full-stack implementation and AI integration. I work with modern technologies like React, Next.js, Python, and various AI/ML frameworks to create solutions that are both cutting-edge and production-ready.</p>
+                                
+                                <p>What sets me apart is my business-first approach. I don't just write code—I architect solutions that align with your growth objectives. Every feature, every integration, every line of code is designed to move the needle for your business.</p>
+                            </div>
+                            
+                            <div class="bg-slate-50 rounded-2xl p-6 mb-8">
+                                <h3 class="font-bold text-[#0F172A] mb-4">Why U.S. Clients Choose to Work With Me:</h3>
+                                <div class="space-y-3">
+                                    <div class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                                        <span class="text-[#475569]"><strong>Clear Communication:</strong> Fluent English, responsive communication, and timezone-flexible availability.</span>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                                        <span class="text-[#475569]"><strong>U.S. Market Understanding:</strong> I understand American business culture, user expectations, and compliance requirements.</span>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                                        <span class="text-[#475569]"><strong>Results-Driven:</strong> Every project focuses on tangible outcomes—more conversions, lower costs, better user experiences.</span>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                                        <span class="text-[#475569]"><strong>Long-Term Partnership:</strong> I'm invested in your success beyond project delivery, offering ongoing support and strategic guidance.</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <button onclick="navigateTo('contact')" class="gradient-btn text-white px-8 py-4 rounded-xl font-bold text-lg hover:scale-105 transition-transform shadow-lg shadow-blue-500/25">
+                                BOOK A CONSULTATION
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS PAGE -->
+        <section id="skills" class="page-section">
+            <div class="py-24 bg-slate-50">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-16 fade-in">
+                        <span class="inline-block px-4 py-2 rounded-full bg-blue-50 text-[#2563EB] font-medium text-sm mb-4">EXPERTISE</span>
+                        <h1 class="text-4xl sm:text-5xl font-bold text-[#0F172A] mb-6">Technical Skills & Tools</h1>
+                        <p class="text-xl text-[#475569] max-w-3xl mx-auto">A comprehensive toolkit for building modern, intelligent applications across the full stack.</p>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <!-- Technical Stack -->
+                        <div class="fade-in bg-white rounded-3xl p-8 shadow-sm glow-effect">
+                            <div class="flex items-center mb-6">
+                                <div class="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center mr-4">
+                                    <i class="fas fa-code text-xl text-[#2563EB]"></i>
+                                </div>
+                                <h2 class="text-2xl font-bold text-[#0F172A]">Technical Stack</h2>
+                            </div>
+                            <div class="grid grid-cols-3 gap-4">
+                                <div class="text-center p-4 rounded-xl bg-slate-50 hover:bg-blue-50 transition-colors">
+                                    <i class="fab fa-react text-3xl text-[#61DAFB] mb-2"></i>
+                                    <div class="text-sm font-medium text-[#0F172A]">React</div>
+                                </div>
+                                <div class="text-center p-4 rounded-xl bg-slate-50 hover:bg-blue-50 transition-colors">
+                                    <i class="fab fa-node-js text-3xl text-[#339933] mb-2"></i>
+                                    <div class="text-sm font-medium text-[#0F172A]">Node.js</div>
+                                </div>
+                                <div class="text-center p-4 rounded-xl bg-slate-50 hover:bg-blue-50 transition-colors">
+                                    <i class="fab fa-python text-3xl text-[#3776AB] mb-2"></i>
+                                    <div class="text-sm font-medium text-[#0F172A]">Python</div>
+                                </div>
+                                <div class="text-center p-4 rounded-xl bg-slate-50 hover:bg-blue-50 transition-colors">
+                                    <i class="fas fa-n text-3xl text-[#0F172A] mb-2"></i>
+                                    <div class="text-sm font-medium text-[#0F172A]">Next.js</div>
+                                </div>
+                                <div class="text-center p-4 rounded-xl bg-slate-50 hover:bg-blue-50 transition-colors">
+                                    <i class="fab fa-js text-3xl text-[#F7DF1E] mb-2"></i>
+                                    <div class="text-sm font-medium text-[#0F172A]">TypeScript</div>
+                                </div>
+                                <div class="text-center p-4 rounded-xl bg-slate-50 hover:bg-blue-50 transition-colors">
+                                    <i class="fas fa-database text-3xl text-[#336791] mb-2"></i>
+                                    <div class="text-sm font-medium text-[#0F172A]">PostgreSQL</div>
+                                </div>
+                                <div class="text-center p-4 rounded-xl bg-slate-50 hover:bg-blue-50 transition-colors">
+                                    <i class="fas fa-leaf text-3xl text-[#47A248] mb-2"></i>
+                                    <div class="text-sm font-medium text-[#0F172A]">MongoDB</div>
+                                </div>
+                                <div class="text-center p-4 rounded-xl bg-slate-50 hover:bg-blue-50 transition-colors">
+                                    <i class="fas fa-wind text-3xl text-[#38BDF8] mb-2"></i>
+                                    <div class="text-sm font-medium text-[#0F172A]">Tailwind</div>
+                                </div>
+                                <div class="text-center p-4 rounded-xl bg-slate-50 hover:bg-blue-50 transition-colors">
+                                    <i class="fas fa-fire text-3xl text-[#FFCA28] mb-2"></i>
+                                    <div class="text-sm font-medium text-[#0F172A]">Firebase</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- AI & Automation -->
+                        <div class="fade-in bg-white rounded-3xl p-8 shadow-sm glow-effect">
+                            <div class="flex items-center mb-6">
+                                <div class="w-12 h-12 rounded-xl bg-purple-100 flex items-center justify-center mr-4">
+                                    <i class="fas fa-brain text-xl text-purple-600"></i>
+                                </div>
+                                <h2 class="text-2xl font-bold text-[#0F172A]">AI & Automation</h2>
+                            </div>
+                            <div class="grid grid-cols-3 gap-4">
+                                <div class="text-center p-4 rounded-xl bg-slate-50 hover:bg-purple-50 transition-colors">
+                                    <i class="fas fa-robot text-3xl text-[#10A37F] mb-2"></i>
+                                    <div class="text-sm font-medium text-[#0F172A]">OpenAI</div>
+                                </div>
+                                <div class="text-center p-4 rounded-xl bg-slate-50 hover:bg-purple-50 transition-colors">
+                                    <i class="fas fa-microchip text-3xl text-[#FF6F00] mb-2"></i>
+                                    <div class="text-sm font-medium text-[#0F172A]">TensorFlow</div>
+                                </div>
+                                <div class="text-center p-4 rounded-xl bg-slate-50 hover:bg-purple-50 transition-colors">
+                                    <i class="fas fa-comments text-3xl text-[#2563EB] mb-2"></i>
+                                    <div class="text-sm font-medium text-[#0F172A]">LangChain</div>
+                                </div>
+                                <div class="text-center p-4 rounded-xl bg-slate-50 hover:bg-purple-50 transition-colors">
+                                    <i class="fas fa-link text-3xl text-[#FF4A00] mb-2"></i>
+                                    <div class="text-sm font-medium text-[#0F172A]">Zapier</div>
+                                </div>
+                                <div class="text-center p-4 rounded-xl bg-slate-50 hover:bg-purple-50 transition-colors">
+                                    <i class="fas fa-cogs text-3xl text-[#6366F1] mb-2"></i>
+                                    <div class="text-sm font-medium text-[#0F172A]">Make</div>
+                                </div>
+                                <div class="text-center p-4 rounded-xl bg-slate-50 hover:bg-purple-50 transition-colors">
+                                    <i class="fas fa-network-wired text-3xl text-[#EA4B71] mb-2"></i>
+                                    <div class="text-sm font-medium text-[#0F172A]">n8n</div>
+                                </div>
+                                <div class="text-center p-4 rounded-xl bg-slate-50 hover:bg-purple-50 transition-colors">
+                                    <i class="fas fa-vector-square text-3xl text-[#FF6F61] mb-2"></i>
+                                    <div class="text-sm font-medium text-[#0F172A]">Pinecone</div>
+                                </div>
+                                <div class="text-center p-4 rounded-xl bg-slate-50 hover:bg-purple-50 transition-colors">
+                                    <i class="fas fa-face-smile-beam text-3xl text-[#FFD21E] mb-2"></i>
+                                    <div class="text-sm font-medium text-[#0F172A]">Hugging Face</div>
+                                </div>
+                                <div class="text-center p-4 rounded-xl bg-slate-50 hover:bg-purple-50 transition-colors">
+                                    <i class="fas fa-bolt text-3xl text-[#00D4AA] mb-2"></i>
+                                    <div class="text-sm font-medium text-[#0F172A]">Supabase</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- No-Code Platforms -->
+                        <div class="fade-in bg-white rounded-3xl p-8 shadow-sm glow-effect">
+                            <div class="flex items-center mb-6">
+                                <div class="w-12 h-12 rounded-xl bg-green-100 flex items-center justify-center mr-4">
+                                    <i class="fas fa-puzzle-piece text-xl text-green-600"></i>
+                                </div>
+                                <h2 class="text-2xl font-bold text-[#0F172A]">No-Code Platforms</h2>
+                            </div>
+                            <div class="grid grid-cols-3 gap-4">
+                                <div class="text-center p-4 rounded-xl bg-slate-50 hover:bg-green-50 transition-colors">
+                                    <i class="fas fa-b text-3xl text-[#0080FF] mb-2"></i>
+                                    <div class="text-sm font-medium text-[#0F172A]">Bubble</div>
+                                </div>
+                                <div class="text-center p-4 rounded-xl bg-slate-50 hover:bg-green-50 transition-colors">
+                                    <i class="fas fa-w text-3xl text-[#4353FF] mb-2"></i>
+                                    <div class="text-sm font-medium text-[#0F172A]">Webflow</div>
+                                </div>
+                                <div class="text-center p-4 rounded-xl bg-slate-50 hover:bg-green-50 transition-colors">
+                                    <i class="fas fa-f text-3xl text-[#F24E1E] mb-2"></i>
+                                    <div class="text-sm font-medium text-[#0F172A]">Framer</div>
+                                </div>
+                                <div class="text-center p-4 rounded-xl bg-slate-50 hover:bg-green-50 transition-colors">
+                                    <i class="fab fa-wordpress text-3xl text-[#21759B] mb-2"></i>
+                                    <div class="text-sm font-medium text-[#0F172A]">WordPress</div>
+                                </div>
+                                <div class="text-center p-4 rounded-xl bg-slate-50 hover:bg-green-50 transition-colors">
+                                    <i class="fab fa-shopify text-3xl text-[#96BF48] mb-2"></i>
+                                    <div class="text-sm font-medium text-[#0F172A]">Shopify</div>
+                                </div>
+                                <div class="text-center p-4 rounded-xl bg-slate-50 hover:bg-green-50 transition-colors">
+                                    <i class="fas fa-a text-3xl text-[#FFBF00] mb-2"></i>
+                                    <div class="text-sm font-medium text-[#0F172A]">Airtable</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Tools & Dev Environments -->
+                        <div class="fade-in bg-white rounded-3xl p-8 shadow-sm glow-effect">
+                            <div class="flex items-center mb-6">
+                                <div class="w-12 h-12 rounded-xl bg-orange-100 flex items-center justify-center mr-4">
+                                    <i class="fas fa-tools text-xl text-orange-600"></i>
+                                </div>
+                                <h2 class="text-2xl font-bold text-[#0F172A]">Tools & Environments</h2>
+                            </div>
+                            <div class="grid grid-cols-3 gap-4">
+                                <div class="text-center p-4 rounded-xl bg-slate-50 hover:bg-orange-50 transition-colors">
+                                    <i class="fab fa-git-alt text-3xl text-[#F05032] mb-2"></i>
+                                    <div class="text-sm font-medium text-[#0F172A]">Git</div>
+                                </div>
+                                <div class="text-center p-4 rounded-xl bg-slate-50 hover:bg-orange-50 transition-colors">
+                                    <i class="fab fa-github text-3xl text-[#181717] mb-2"></i>
+                                    <div class="text-sm font-medium text-[#0F172A]">GitHub</div>
+                                </div>
+                                <div class="text-center p-4 rounded-xl bg-slate-50 hover:bg-orange-50 transition-colors">
+                                    <i class="fab fa-docker text-3xl text-[#2496ED] mb-2"></i>
+                                    <div class="text-sm font-medium text-[#0F172A]">Docker</div>
+                                </div>
+                                <div class="text-center p-4 rounded-xl bg-slate-50 hover:bg-orange-50 transition-colors">
+                                    <i class="fab fa-aws text-3xl text-[#FF9900] mb-2"></i>
+                                    <div class="text-sm font-medium text-[#0F172A]">AWS</div>
+                                </div>
+                                <div class="text-center p-4 rounded-xl bg-slate-50 hover:bg-orange-50 transition-colors">
+                                    <i class="fas fa-v text-3xl text-[#000000] mb-2"></i>
+                                    <div class="text-sm font-medium text-[#0F172A]">Vercel</div>
+                                </div>
+                                <div class="text-center p-4 rounded-xl bg-slate-50 hover:bg-orange-50 transition-colors">
+                                    <i class="fab fa-figma text-3xl text-[#F24E1E] mb-2"></i>
+                                    <div class="text-sm font-medium text-[#0F172A]">Figma</div>
+                                </div>
+                                <div class="text-center p-4 rounded-xl bg-slate-50 hover:bg-orange-50 transition-colors">
+                                    <i class="fas fa-code text-3xl text-[#007ACC] mb-2"></i>
+                                    <div class="text-sm font-medium text-[#0F172A]">VS Code</div>
+                                </div>
+                                <div class="text-center p-4 rounded-xl bg-slate-50 hover:bg-orange-50 transition-colors">
+                                    <i class="fas fa-paper-plane text-3xl text-[#0088CC] mb-2"></i>
+                                    <div class="text-sm font-medium text-[#0F172A]">Postman</div>
+                                </div>
+                                <div class="text-center p-4 rounded-xl bg-slate-50 hover:bg-orange-50 transition-colors">
+                                    <i class="fas fa-server text-3xl text-[#0DB7ED] mb-2"></i>
+                                    <div class="text-sm font-medium text-[#0F172A]">Railway</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRICING PAGE -->
+        <section id="pricing" class="page-section">
+            <div class="py-24">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-16 fade-in">
+                        <span class="inline-block px-4 py-2 rounded-full bg-blue-50 text-[#2563EB] font-medium text-sm mb-4">PRICING</span>
+                        <h1 class="text-4xl sm:text-5xl font-bold text-[#0F172A] mb-6">Transparent Investment Options</h1>
+                        <p class="text-xl text-[#475569] max-w-3xl mx-auto">Clear pricing for quality work. Choose the package that fits your needs, or let's create a custom solution together.</p>
+                    </div>
+                    
+                    <div class="grid lg:grid-cols-3 gap-8">
+                        <!-- Starter Website -->
+                        <div class="fade-in bg-white rounded-3xl p-8 shadow-sm border border-slate-200 card-hover">
+                            <div class="text-center mb-8">
+                                <h3 class="text-2xl font-bold text-[#0F172A] mb-2">Starter Website</h3>
+                                <p class="text-[#475569] mb-4">Professional web presence for growing businesses</p>
+                                <div class="flex items-end justify-center">
+                                    <span class="text-5xl font-bold text-[#0F172A]">$1,500</span>
+                                    <span class="text-[#475569] ml-2">starting</span>
+                                </div>
+                            </div>
+                            
+                            <div class="space-y-4 mb-8">
+                                <div class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
+                                    <span class="text-[#475569]">Custom responsive design (up to 5 pages)</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
+                                    <span class="text-[#475569]">Mobile-first optimization</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
+                                    <span class="text-[#475569]">SEO foundation setup</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
+                                    <span class="text-[#475569]">Contact form integration</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
+                                    <span class="text-[#475569]">Analytics setup</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
+                                    <span class="text-[#475569]">2 weeks delivery</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
+                                    <span class="text-[#475569]">30-day post-launch support</span>
+                                </div>
+                            </div>
+                            
+                            <button onclick="navigateTo('contact')" class="w-full border-2 border-[#2563EB] text-[#2563EB] px-6 py-4 rounded-xl font-bold hover:bg-blue-50 transition-all">
+                                GET CUSTOM QUOTE
+                            </button>
+                        </div>
+                        
+                        <!-- AI Website / SaaS MVP -->
+                        <div class="fade-in pricing-popular rounded-3xl p-8 shadow-xl card-hover relative overflow-hidden">
+                            <div class="absolute top-4 right-4 px-3 py-1 bg-[#2563EB] text-white text-sm font-medium rounded-full">POPULAR</div>
+                            <div class="text-center mb-8">
+                                <h3 class="text-2xl font-bold text-white mb-2">AI Website / SaaS MVP</h3>
+                                <p class="text-slate-300 mb-4">For founders launching their first product</p>
+                                <div class="flex items-end justify-center">
+                                    <span class="text-5xl font-bold text-white">$4,000</span>
+                                    <span class="text-slate-300 ml-2">starting</span>
+                                </div>
+                            </div>
+                            
+                            <div class="space-y-4 mb-8">
+                                <div class="flex items-start">
+                                    <i class="fas fa-check text-green-400 mr-3 mt-1"></i>
+                                    <span class="text-slate-300">Everything in Starter, plus:</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-check text-green-400 mr-3 mt-1"></i>
+                                    <span class="text-slate-300">User authentication system</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-check text-green-400 mr-3 mt-1"></i>
+                                    <span class="text-slate-300">AI chatbot or assistant integration</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-check text-green-400 mr-3 mt-1"></i>
+                                    <span class="text-slate-300">Database setup & management</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-check text-green-400 mr-3 mt-1"></i>
+                                    <span class="text-slate-300">Basic admin dashboard</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-check text-green-400 mr-3 mt-1"></i>
+                                    <span class="text-slate-300">API integrations (up to 3)</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-check text-green-400 mr-3 mt-1"></i>
+                                    <span class="text-slate-300">4-6 weeks delivery</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-check text-green-400 mr-3 mt-1"></i>
+                                    <span class="text-slate-300">60-day post-launch support</span>
+                                </div>
+                            </div>
+                            
+                            <button onclick="navigateTo('contact')" class="w-full gradient-btn text-white px-6 py-4 rounded-xl font-bold hover:scale-105 transition-transform shadow-lg shadow-blue-500/30">
+                                GET CUSTOM QUOTE
+                            </button>
+                        </div>
+                        
+                        <!-- Full SaaS Build -->
+                        <div class="fade-in bg-white rounded-3xl p-8 shadow-sm border border-slate-200 card-hover">
+                            <div class="text-center mb-8">
+                                <h3 class="text-2xl font-bold text-[#0F172A] mb-2">Full SaaS Build</h3>
+                                <p class="text-[#475569] mb-4">Complete enterprise-grade platform</p>
+                                <div class="flex items-end justify-center">
+                                    <span class="text-5xl font-bold text-[#0F172A]">$10,000</span>
+                                    <span class="text-[#475569] ml-2">starting</span>
+                                </div>
+                            </div>
+                            
+                            <div class="space-y-4 mb-8">
+                                <div class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
+                                    <span class="text-[#475569]">Everything in MVP, plus:</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
+                                    <span class="text-[#475569]">Advanced role-based access control</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
+                                    <span class="text-[#475569]">Stripe subscription billing</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
+                                    <span class="text-[#475569]">Advanced AI features & automation</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
+                                    <span class="text-[#475569]">Real-time analytics dashboard</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
+                                    <span class="text-[#475569]">Multi-tenant architecture</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
+                                    <span class="text-[#475569]">8-12 weeks delivery</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
+                                    <span class="text-[#475569]">90-day support + maintenance plan</span>
+                                </div>
+                            </div>
+                            
+                            <button onclick="navigateTo('contact')" class="w-full border-2 border-[#2563EB] text-[#2563EB] px-6 py-4 rounded-xl font-bold hover:bg-blue-50 transition-all">
+                                GET CUSTOM QUOTE
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-12 text-center fade-in">
+                        <p class="text-[#475569] mb-4">Need something more specific? Every project is unique.</p>
+                        <button onclick="navigateTo('contact')" class="gradient-btn text-white px-8 py-4 rounded-xl font-bold hover:scale-105 transition-transform shadow-lg shadow-blue-500/25">
+                            DISCUSS YOUR PROJECT
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS PAGE -->
+        <section id="testimonials" class="page-section">
+            <div class="py-24 bg-slate-50">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-16 fade-in">
+                        <span class="inline-block px-4 py-2 rounded-full bg-blue-50 text-[#2563EB] font-medium text-sm mb-4">TESTIMONIALS</span>
+                        <h1 class="text-4xl sm:text-5xl font-bold text-[#0F172A] mb-6">What Clients Say</h1>
+                        <p class="text-xl text-[#475569] max-w-3xl mx-auto">Don't just take my word for it—here's what business leaders have to say about working together.</p>
+                    </div>
+                    
+                    <div class="grid lg:grid-cols-3 gap-8">
+                        <!-- Testimonial 1 -->
+                        <div class="fade-in testimonial-card bg-white rounded-3xl p-8 shadow-sm card-hover">
+                            <div class="flex items-center mb-4">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                            </div>
+                            <p class="text-lg text-[#475569] mb-6 italic">"Muthuraj transformed our entire business operations with an AI-powered platform that reduced our customer service costs by 40%. His understanding of both technology and business strategy is exceptional. He didn't just deliver code—he delivered results."</p>
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center mr-4">
+                                    <span class="text-white font-bold">JM</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-[#0F172A]">James Mitchell</h4>
+                                    <p class="text-sm text-[#475569]">CEO, TechFlow Solutions • San Francisco, CA</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Testimonial 2 -->
+                        <div class="fade-in testimonial-card bg-white rounded-3xl p-8 shadow-sm card-hover">
+                            <div class="flex items-center mb-4">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                            </div>
+                            <p class="text-lg text-[#475569] mb-6 italic">"We hired Muthuraj to build our SaaS MVP, and he exceeded every expectation. His communication was always clear, deadlines were met, and the final product was polished and ready for market. He's now our go-to developer for all projects."</p>
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-green-500 to-teal-600 flex items-center justify-center mr-4">
+                                    <span class="text-white font-bold">SR</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-[#0F172A]">Sarah Rodriguez</h4>
+                                    <p class="text-sm text-[#475569]">Founder, GrowthLab Agency • Austin, TX</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Testimonial 3 -->
+                        <div class="fade-in testimonial-card bg-white rounded-3xl p-8 shadow-sm card-hover">
+                            <div class="flex items-center mb-4">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                            </div>
+                            <p class="text-lg text-[#475569] mb-6 italic">"The AI automation system Muthuraj built for our real estate firm has been a game-changer. Lead response time dropped from hours to seconds, and our conversion rate increased by 35%. Worth every penny and more."</p>
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center mr-4">
+                                    <span class="text-white font-bold">DT</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-[#0F172A]">David Thompson</h4>
+                                    <p class="text-sm text-[#475569]">Managing Partner, Prime Realty Group • Miami, FL</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT PAGE -->
+        <section id="contact" class="page-section">
+            <div class="py-24">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid lg:grid-cols-2 gap-16">
+                        <div class="fade-in">
+                            <span class="inline-block px-4 py-2 rounded-full bg-blue-50 text-[#2563EB] font-medium text-sm mb-4">GET IN TOUCH</span>
+                            <h1 class="text-4xl sm:text-5xl font-bold text-[#0F172A] mb-6">Let's Build Something Remarkable</h1>
+                            <p class="text-xl text-[#475569] mb-8">Ready to transform your ideas into reality? Fill out the form and I'll get back to you within 24 hours to schedule a free strategy call.</p>
+                            
+                            <div class="space-y-6 mb-8">
+                                <div class="flex items-center">
+                                    <div class="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center mr-4">
+                                        <i class="fas fa-envelope text-[#2563EB]"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-[#475569]">Email</p>
+                                        <a href="mailto:muthurajp064@gmail.com" class="text-[#0F172A] font-medium hover:text-[#2563EB]">muthurajp064@gmail.com</a>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center">
+                                    <div class="w-12 h-12 rounded-xl bg-green-100 flex items-center justify-center mr-4">
+                                        <i class="fas fa-clock text-green-600"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-[#475569]">Response Time</p>
+                                        <p class="text-[#0F172A] font-medium">Within 24 hours</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center">
+                                    <div class="w-12 h-12 rounded-xl bg-purple-100 flex items-center justify-center mr-4">
+                                        <i class="fas fa-globe text-purple-600"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-[#475569]">Availability</p>
+                                        <p class="text-[#0F172A] font-medium">Flexible timezone scheduling</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex space-x-4">
+                                <a href="#" class="w-12 h-12 rounded-xl bg-[#0F172A] flex items-center justify-center hover:scale-110 transition-transform">
+                                    <i class="fab fa-github text-white text-xl"></i>
+                                </a>
+                                <a href="#" class="w-12 h-12 rounded-xl bg-[#0077B5] flex items-center justify-center hover:scale-110 transition-transform">
+                                    <i class="fab fa-linkedin-in text-white text-xl"></i>
+                                </a>
+                                <a href="#" class="w-12 h-12 rounded-xl bg-[#1DBF73] flex items-center justify-center hover:scale-110 transition-transform">
+                                    <span class="text-white font-bold text-sm">Fv</span>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="fade-in">
+                            <form id="contactForm" class="bg-white rounded-3xl p-8 shadow-lg border border-slate-100">
+                                <div class="space-y-6">
+                                    <div>
+                                        <label class="block text-sm font-medium text-[#0F172A] mb-2">Full Name *</label>
+                                        <input type="text" required class="w-full px-4 py-3 rounded-xl border border-slate-200 text-[#0F172A] transition-all" placeholder="John Smith">
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-sm font-medium text-[#0F172A] mb-2">Email Address *</label>
+                                        <input type="email" required class="w-full px-4 py-3 rounded-xl border border-slate-200 text-[#0F172A] transition-all" placeholder="john@company.com">
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-sm font-medium text-[#0F172A] mb-2">Company / Website</label>
+                                        <input type="text" class="w-full px-4 py-3 rounded-xl border border-slate-200 text-[#0F172A] transition-all" placeholder="Your company or website URL">
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-sm font-medium text-[#0F172A] mb-2">Project Type *</label>
+                                        <select required class="w-full px-4 py-3 rounded-xl border border-slate-200 text-[#0F172A] transition-all">
+                                            <option value="">Select a service</option>
+                                            <option value="website">Website Development</option>
+                                            <option value="saas">SaaS Platform</option>
+                                            <option value="ai">AI Automation</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-sm font-medium text-[#0F172A] mb-2">Budget Range</label>
+                                        <select class="w-full px-4 py-3 rounded-xl border border-slate-200 text-[#0F172A] transition-all">
+                                            <option value="">Select budget range</option>
+                                            <option value="1k-3k">$1,000 - $3,000</option>
+                                            <option value="3k-5k">$3,000 - $5,000</option>
+                                            <option value="5k-10k">$5,000 - $10,000</option>
+                                            <option value="10k+">$10,000+</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-sm font-medium text-[#0F172A] mb-2">Project Details *</label>
+                                        <textarea required rows="4" class="w-full px-4 py-3 rounded-xl border border-slate-200 text-[#0F172A] transition-all resize-none" placeholder="Tell me about your project, goals, and timeline..."></textarea>
+                                    </div>
+                                    
+                                    <button type="submit" class="w-full gradient-btn text-white px-8 py-4 rounded-xl font-bold text-lg hover:scale-105 transition-transform shadow-lg shadow-blue-500/25">
+                                        SEND MESSAGE
+                                    </button>
+                                </div>
+                            </form>
+                            
+                            <div id="successMessage" class="hidden mt-6 bg-green-50 border border-green-200 rounded-xl p-6 text-center">
+                                <i class="fas fa-check-circle text-4xl text-green-500 mb-4"></i>
+                                <h3 class="text-xl font-bold text-[#0F172A] mb-2">Message Sent Successfully!</h3>
+                                <p class="text-[#475569]">Thank you for reaching out. I'll review your message and get back to you within 24 hours.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- CASE STUDY MODAL -->
+    <div id="caseStudyModal" class="modal fixed inset-0 z-50 overflow-y-auto">
+        <div class="min-h-screen px-4 py-8 flex items-center justify-center">
+            <div class="fixed inset-0 bg-black/60 backdrop-blur-sm" onclick="closeCaseStudy()"></div>
+            <div class="relative bg-white rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
+                <button onclick="closeCaseStudy()" class="absolute top-6 right-6 w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center hover:bg-slate-200 transition-colors z-10">
+                    <i class="fas fa-times text-slate-600"></i>
+                </button>
+                <div id="caseStudyContent" class="p-8 lg:p-12">
+                    <!-- Content will be injected here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#0F172A] text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-10 h-10 rounded-xl gradient-btn flex items-center justify-center">
+                            <span class="text-white font-bold text-lg">M</span>
+                        </div>
+                        <span class="font-bold text-xl">Muthuraj</span>
+                    </div>
+                    <p class="text-slate-400 mb-4">Full Stack AI SaaS Developer</p>
+                    <p class="text-slate-400 max-w-md">Building intelligent, scalable digital products that transform how businesses operate. From concept to deployment—strategically built for growth.</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" onclick="navigateTo('home')" class="text-slate-400 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#" onclick="navigateTo('services')" class="text-slate-400 hover:text-white transition-colors">Services</a></li>
+                        <li><a href="#" onclick="navigateTo('projects')" class="text-slate-400 hover:text-white transition-colors">Projects</a></li>
+                        <li><a href="#" onclick="navigateTo('pricing')" class="text-slate-400 hover:text-white transition-colors">Pricing</a></li>
+                        <li><a href="#" onclick="navigateTo('contact')" class="text-slate-400 hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Contact</h4>
+                    <div class="space-y-2 mb-6">
+                        <a href="mailto:muthurajp064@gmail.com" class="flex items-center text-slate-400 hover:text-white transition-colors">
+                            <i class="fas fa-envelope mr-3"></i>
+                            muthurajp064@gmail.com
+                        </a>
+                    </div>
+                    <div class="flex space-x-3">
+                        <a href="#" class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
+                            <span class="font-bold text-xs">Fv</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-slate-400 text-sm">© 2024 Muthuraj. All rights reserved.</p>
+                <p class="text-slate-400 text-sm mt-2 md:mt-0">Designed & Built with <span class="text-red-500">♥</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation
+        function navigateTo(page) {
+            // Hide all sections
+            document.querySelectorAll('.page-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show target section
+            const targetSection = document.getElementById(page);
+            if (targetSection) {
+                targetSection.classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                
+                // Update nav active state
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('onclick')?.includes(page)) {
+                        link.classList.add('active');
+                    }
+                });
+                
+                // Trigger animations
+                setTimeout(() => {
+                    initScrollAnimations();
+                }, 100);
+            }
+        }
+        
+        // Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        function closeMobileMenu() {
+            mobileMenu.classList.add('hidden');
+        }
+        
+        // Scroll Animations
+        function initScrollAnimations() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            document.querySelectorAll('.fade-in').forEach(el => {
+                observer.observe(el);
+            });
+        }
+        
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', () => {
+            initScrollAnimations();
+            
+            // Set home as active initially
+            document.querySelector('[onclick="navigateTo(\'home\')"]')?.classList.add('active');
+        });
+        
+        // Contact Form
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            this.classList.add('hidden');
+            document.getElementById('successMessage').classList.remove('hidden');
+        });
+        
+        // Case Studies Data
+        const caseStudies = {
+            echostate: {
+                title: 'EchoEstate',
+                subtitle: 'AI-Powered Real Estate Listing Platform',
+                gradient: 'from-blue-600 to-purple-600',
+                overview: 'EchoEstate is a comprehensive real estate platform that leverages artificial intelligence to revolutionize property discovery, valuation, and market analysis for buyers, sellers, and real estate agents.',
+                problem: 'Traditional real estate platforms suffer from poor property matching, outdated valuations, and information overload. Buyers spend countless hours sifting through irrelevant listings, while sellers struggle to price properties accurately.',
+                solution: 'I built an AI-powered platform that uses machine learning algorithms to provide intelligent property matching based on user preferences, lifestyle factors, and hidden patterns. The system includes automated property valuations using comparable sales data, market trends, and property features.',
+                features: ['Smart property matching with preference learning', 'AI-powered automated property valuations', 'Predictive market trend analysis', 'Virtual tour integration', 'Agent dashboard with lead scoring', 'Automated email & SMS notifications', 'Interactive neighborhood insights'],
+                demoLive: 'Demo mode showcases all features with sample data. Live mode connects to MLS feeds and provides real-time property data, requiring proper licensing and API integrations.',
+                techStack: ['Next.js', 'React', 'Python', 'TensorFlow', 'PostgreSQL', 'OpenAI API', 'AWS', 'Stripe'],
+                upgrades: ['AR property visualization', 'Mortgage calculator with rate predictions', 'Investment ROI calculator', 'Multi-language support']
+            },
+            tabletalk: {
+                title: 'TableTalk',
+                subtitle: 'Restaurant Website + AI Assistant',
+                gradient: 'from-orange-500 to-red-500',
+                overview: 'TableTalk is a modern restaurant website featuring an intelligent AI assistant that handles reservations, answers customer queries, provides menu recommendations, and streamlines front-of-house operations.',
+                problem: 'Restaurants lose significant revenue due to missed calls, slow reservation response times, and staff being overwhelmed with repetitive customer questions. This leads to poor customer experience and operational inefficiency.',
+                solution: 'I developed an AI-powered virtual assistant that handles customer interactions 24/7. The chatbot processes reservations, answers FAQs, suggests menu items based on dietary preferences, and integrates with the restaurant\'s booking system.',
+                features: ['24/7 AI reservation assistant', 'Natural language menu inquiries', 'Dietary restriction filtering', 'Real-time table availability', 'Order-ahead integration', 'Customer preference memory', 'Multi-channel support (web, SMS, social)'],
+                demoLive: 'Demo mode uses simulated restaurant data and test reservation slots. Live mode integrates with POS systems, real-time inventory, and actual booking calendars.',
+                techStack: ['React', 'Node.js', 'OpenAI GPT-4', 'MongoDB', 'Twilio', 'Stripe', 'Vercel'],
+                upgrades: ['Voice assistant integration', 'Waitlist management', 'Loyalty program integration', 'Kitchen display system']
+            },
+            fitmind: {
+                title: 'FitMind',
+                subtitle: 'Fitness Coaching SaaS + AI Personal Trainer',
+                gradient: 'from-green-500 to-teal-500',
+                overview: 'FitMind is a subscription-based fitness platform that provides users with an AI personal trainer capable of creating custom workout plans, tracking progress, providing form corrections, and adapting routines based on performance.',
+                problem: 'Personal training is expensive and inaccessible for most people. Generic workout apps fail to provide the personalized guidance and accountability that leads to lasting fitness results.',
+                solution: 'I built a comprehensive SaaS platform with an AI coach that learns user goals, fitness levels, and preferences to create adaptive workout programs. The system adjusts difficulty based on progress and provides real-time feedback.',
+                features: ['AI-generated personalized workout plans', 'Progress tracking with analytics', 'Video exercise library with form guides', 'Nutrition tracking integration', 'Goal setting and milestone celebrations', 'Community challenges and leaderboards', 'Wearable device integration'],
+                demoLive: 'Demo provides sample workout plans and simulated progress data. Live mode enables full user accounts, payment processing, and real progress tracking.',
+                techStack: ['Next.js', 'React Native', 'Python', 'OpenAI', 'Supabase', 'Stripe', 'Chart.js'],
+                upgrades: ['Computer vision form correction', 'Live video coaching sessions', 'Meal planning AI', 'Apple Health / Google Fit sync']
+            },
+            financeai: {
+                title: 'AI Financial Forecasting Tool',
+                subtitle: 'Predictive Analytics & Business Intelligence',
+                gradient: 'from-yellow-500 to-amber-500',
+                overview: 'An enterprise-grade predictive analytics platform that uses machine learning to forecast revenue, identify trends, detect anomalies, and provide actionable business intelligence for data-driven decision making.',
+                problem: 'Businesses often make decisions based on gut feelings rather than data. Manual financial analysis is time-consuming, prone to errors, and fails to uncover hidden patterns that could impact profitability.',
+                solution: 'I developed an AI-powered analytics platform that ingests financial data, applies machine learning models for forecasting, and presents insights through intuitive dashboards. The system identifies trends and anomalies automatically.',
+                features: ['Revenue and expense forecasting', 'Cash flow predictions', 'Anomaly detection alerts', 'Trend analysis with visualizations', 'Scenario modeling and what-if analysis', 'Automated report generation', 'Role-based access and sharing'],
+                demoLive: 'Demo uses anonymized sample financial data to showcase analytics capabilities. Live mode connects to accounting software (QuickBooks, Xero) and ERP systems for real-time analysis.',
+                techStack: ['Python', 'TensorFlow', 'React', 'D3.js', 'PostgreSQL', 'FastAPI', 'Docker', 'AWS'],
+                upgrades: ['Natural language queries', 'Industry benchmarking', 'Automated email reports', 'API for external integrations']
+            }
+        };
+        
+        function openCaseStudy(projectId) {
+            const study = caseStudies[projectId];
+            if (!study) return;
+            
+            const content = `
+                <div class="aspect-video bg-gradient-to-br ${study.gradient} rounded-2xl flex items-center justify-center mb-8">
+                    <div class="text-center">
+                        <h2 class="text-4xl font-bold text-white mb-2">${study.title}</h2>
+                        <p class="text-white/70">${study.subtitle}</p>
+                    </div>
+                </div>
+                
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="text-2xl font-bold text-[#0F172A] mb-3">Overview</h3>
+                        <p class="text-[#475569]">${study.overview}</p>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-2xl font-bold text-[#0F172A] mb-3">The Problem</h3>
+                        <p class="text-[#475569]">${study.problem}</p>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-2xl font-bold text-[#0F172A] mb-3">The Solution</h3>
+                        <p class="text-[#475569]">${study.solution}</p>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-2xl font-bold text-[#0F172A] mb-3">Key Features</h3>
+                        <div class="grid md:grid-cols-2 gap-3">
+                            ${study.features.map(f => `
+                                <div class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                                    <span class="text-[#475569]">${f}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-2xl font-bold text-[#0F172A] mb-3">Demo vs Live Mode</h3>
+                        <p class="text-[#475569]">${study.demoLive}</p>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-2xl font-bold text-[#0F172A] mb-3">Tech Stack</h3>
+                        <div class="flex flex-wrap gap-2">
+                            ${study.techStack.map(t => `
+                                <span class="px-4 py-2 bg-slate-100 text-[#0F172A] rounded-lg font-medium">${t}</span>
+                            `).join('')}
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-2xl font-bold text-[#0F172A] mb-3">Future Upgrades</h3>
+                        <div class="grid md:grid-cols-2 gap-3">
+                            ${study.upgrades.map(u => `
+                                <div class="flex items-start">
+                                    <i class="fas fa-arrow-right text-[#2563EB] mr-3 mt-1"></i>
+                                    <span class="text-[#475569]">${u}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                    
+                    <div class="pt-6 border-t border-slate-200">
+                        <button onclick="navigateTo('contact'); closeCaseStudy();" class="gradient-btn text-white px-8 py-4 rounded-xl font-bold text-lg hover:scale-105 transition-transform shadow-lg shadow-blue-500/25">
+                            BUILD SOMETHING LIKE THIS
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('caseStudyContent').innerHTML = content;
+            document.getElementById('caseStudyModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeCaseStudy() {
+            document.getElementById('caseStudyModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        
+        // Close modal on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeCaseStudy();
+            }
+        });
+        
+        // Navbar scroll effect
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                navbar.classList.add('shadow-md');
+            } else {
+                navbar.classList.remove('shadow-md');
+            }
+            
+            lastScroll = currentScroll;
+        });
+    </script>
+</body>
+</html>
